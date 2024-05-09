@@ -7,17 +7,9 @@ pipeline {
       }
       steps {
         sh 'mvn --version'
+	sh 'touch home/test'
       }
     }
-  stages {
-        stage('Compose down') {
-            steps {
-                dir("/home") {
-                    sh('touch test')
-                }
-            }
-        }
-		}
     stage('Front-end') {
       agent {
         docker { image 'node:16-alpine' }
